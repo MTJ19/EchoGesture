@@ -23,9 +23,9 @@
   .word-studio header, .word-studio main { padding-block: 12px; }
   .word-studio .intro h2 { font-size: clamp(36px, 4vw, 52px); margin: 4px 0 6px; }
   .word-studio .intro p { margin-bottom: 14px; }
-  .word-studio .word-workspace { grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr); grid-template-rows: auto 1fr; align-items: start; }
+  .word-studio .word-workspace { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); grid-template-rows: auto 1fr; align-items: start; }
   .word-studio .word-workspace > :first-child { grid-row: span 2; }
-  .word-studio .word-viewer { height: clamp(180px, 42dvh, 420px); aspect-ratio: auto; }
+  .word-studio .word-viewer { height: clamp(210px, 48dvh, 480px); aspect-ratio: auto; }
   .word-studio .word-result h3 { font-size: 42px; margin: 4px 0; }
   .word-studio .controls { margin-top: 8px; }
   .word-studio .word-list { max-height: clamp(100px, 22dvh, 230px); overflow-y: auto; align-content: start; gap: 5px; }

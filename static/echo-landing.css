@@ -3,3 +3,28 @@
 :root{--echo-green:#213c31}body{background:#f4f1e9;color:var(--echo-green)}.echo-nav,.echo-footer{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:24px 5vw}.echo-brand{font-size:24px;font-weight:650;letter-spacing:-1px}.echo-nav nav{display:flex;flex-wrap:wrap;gap:24px;font-size:14px}.template-credit{font-size:12px}.echo-hero{background:#314a38;min-height:760px;padding:70px 5vw;isolation:isolate}.echo-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:7vw;align-items:center;position:relative}.echo-copy h1{font-size:clamp(48px,6vw,90px);line-height:1.02;letter-spacing:-.065em;margin:22px 0}.echo-copy h1 em{font-family:Georgia,serif;font-weight:400;color:#d6e6b7}.echo-copy .label{color:#d6e6b7}.echo-description{font-size:18px;max-width:510px;line-height:1.7;color:#e0e6da}.echo-actions{display:flex;flex-wrap:wrap;gap:20px;align-items:center;margin:30px 0}.echo-primary{background:#d6e6b7;color:#213c31;padding:15px 23px;border-radius:5px;font-weight:600}.echo-secondary{color:white}.echo-spec{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid #ffffff40;padding-top:20px;gap:12px}.echo-spec dt{font-size:12px;color:#cfdbc7}.echo-spec dd{margin:7px 0;font-size:14px}.echo-preview{padding:18px;border:1px solid #ffffff50;background:#ffffff12;border-radius:8px}.preview-top{display:flex;justify-content:space-between;font-size:11px;letter-spacing:.04em;margin-bottom:16px}.echo-preview video{width:100%;aspect-ratio:4/3;object-fit:contain;background:#172d23;border-radius:4px}.preview-bottom{display:grid;gap:4px;margin-top:14px}.preview-bottom span,.echo-preview p{font-size:12px;color:#d1ddcd}.preview-bottom strong{font:36px Georgia,serif}.preview-bottom a{color:#e5efca;margin-top:5px}.echo-preview p{margin:16px 0 0}.echo-orbit{position:absolute;width:650px;height:650px;border:1px solid #ffffff14;border-radius:50%;right:-10%;top:-20%;box-shadow:0 0 0 90px #ffffff03,0 0 0 180px #ffffff03}.echo-section{padding:80px 5vw}.echo-section h2{font:clamp(32px,4vw,52px)/1.1 Georgia,serif;letter-spacing:-.035em;margin:14px 0}.echo-cards{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px}.echo-cards article{border-top:1px solid #9aa995;padding:24px 0}.echo-cards h3{font-size:24px;margin-bottom:12px}.echo-cards p{max-width:480px;line-height:1.7;margin-bottom:18px}.echo-status{background:#e3e7d8;display:grid;grid-template-columns:1fr 1fr;gap:7vw;align-items:center}.echo-status>p{line-height:1.8}.echo-footer{flex-wrap:wrap;font-size:13px;border-top:1px solid #c7cebe}.echo-footer>span{font-weight:700}a:focus-visible{outline:3px solid #a7bd82;outline-offset:5px}@media(max-width:760px){.echo-nav{align-items:flex-start;flex-direction:column}.echo-nav nav{gap:10px 20px}.echo-grid,.echo-status{grid-template-columns:1fr;gap:38px}.echo-hero{padding-top:40px;min-height:auto}.echo-cards{grid-template-columns:1fr}.echo-section{padding:48px 5vw}}
 
 .echo-artwork{margin:0;padding:14px;background:#ebe9db;color:#213c31;border:1px solid #f4f1e95c;box-shadow:0 24px 70px #10281d26}.echo-artwork .preview-top{margin:3px 2px 12px;font-size:10px;letter-spacing:.08em}.echo-artwork img{display:block;width:100%;height:auto;max-height:530px;object-fit:cover;object-position:center;border-radius:3px}.echo-artwork figcaption{display:flex;justify-content:space-between;gap:14px;align-items:center;padding:16px 2px 4px;font-size:12px}.echo-artwork figcaption>span{font:italic 20px Georgia,serif}.echo-artwork figcaption a{white-space:nowrap}@media(max-width:760px){.echo-artwork{max-width:480px;width:100%;justify-self:center}.echo-artwork img{max-height:460px}.echo-artwork figcaption{flex-wrap:wrap}}
+
+/* A quiet, proportionate artwork beside the main headline. */
+.echo-logo-artwork{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:30px;align-self:center;background:transparent;color:#d6e6b7;padding:32px 0;border:0;box-shadow:none;width:100%;max-width:560px;justify-self:center}
+.echo-logo-artwork img{display:block;width:100%;height:auto;max-height:none;object-fit:contain;padding:0;background:transparent;border-radius:0;filter:brightness(0) saturate(100%) invert(92%) sepia(15%) saturate(444%) hue-rotate(35deg) brightness(99%) contrast(87%)}
+.echo-logo-artwork figcaption{display:block;margin:0;padding:0;text-align:center;font:italic clamp(18px,1.5vw,24px)/1.5 Georgia,serif;color:#d6e6b7;text-wrap:balance}
+@media(max-width:760px){.echo-logo-artwork{max-width:440px;padding:12px 0 24px;gap:22px}.echo-logo-artwork img{height:auto;max-height:none}}
+
+/* Let the wide artwork fill the available hero space. */
+.echo-grid{grid-template-columns:1fr 1.15fr;gap:3vw}
+.echo-logo-artwork{max-width:none;padding:0;gap:20px}
+.echo-logo-artwork img{width:100%}
+@media(max-width:760px){.echo-grid{grid-template-columns:1fr;gap:28px}.echo-logo-artwork{max-width:none;padding:0 0 16px;gap:16px}}
+
+/* Give the headline and supporting copy more horizontal room. */
+.echo-grid{grid-template-columns:1.2fr 1fr;gap:3vw}
+.echo-description{max-width:620px}
+@media(max-width:760px){.echo-grid{grid-template-columns:1fr;gap:28px}}
+
+/* Slightly taller artwork without changing its horizontal footprint. */
+.echo-logo-artwork img{transform:scaleY(1.15);margin-block:18px}
+
+/* Ease anchor navigation into the explanatory section. */
+html{scroll-behavior:smooth}
+#how-it-works{scroll-margin-top:28px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}

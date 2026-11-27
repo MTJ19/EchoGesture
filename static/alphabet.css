@@ -28,7 +28,7 @@
   }
   #recognize > :first-child { grid-row: span 2; }
   #recognize > .result, .composer { width: 100%; }
-  #recognize .viewer { width: 100%; height: clamp(180px, 42dvh, 420px); aspect-ratio: auto; }
+  #recognize .viewer { width: 100%; height: clamp(210px, 48dvh, 480px); aspect-ratio: auto; }
   #letter { font-size: clamp(48px, 7dvh, 72px); }
   .result h3 { margin-top: 4px; }
   #score { margin: 4px 0 0; }
@@ -56,5 +56,5 @@
 .composer button { font-size: 16px; min-height: 46px; padding: 10px 15px; }
 .composer .muted { font-size: 16px; }
 @media (min-width: 820px) {
-  #recognize { grid-template-columns: minmax(0, 1fr) minmax(0, 1.12fr); }
+  #recognize { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
 }

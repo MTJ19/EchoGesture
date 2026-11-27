@@ -1,0 +1,17 @@
+**
+!requirements-deploy.txt
+!app.py
+!asl_lab/
+!asl_lab/*.py
+!config/
+!config/showcase50.json
+!templates/
+!templates/**
+!static/
+!static/**
+static/brain-particles.json
+!models/
+!models/classifier.joblib
+!models/motion.joblib
+!models/word81-grammar-candidate.joblib
+!models/words20-candidate.joblib

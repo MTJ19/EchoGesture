@@ -35,9 +35,24 @@ Open:
 
 Allow camera access when prompted. Word recordings are three seconds; uploaded word clips must be no longer than ten seconds and no larger than 8 MB. Clips are deleted after prediction and are not automatically added to training. The development server binds to this computer only.
 
-**A fresh clone does not include trained weights, the full research datasets or cached landmarks.** Install dependencies and obtain or reproduce the required trusted model artifacts before expecting recognition. The existing local workspace contains those artifacts. Example-video playback additionally needs local training videos and their quality manifest. Never load untrusted joblib files.
+The Git repository includes the checkpoints used by the showcase. The full research datasets and cached landmarks are separate. Videos bundled under `static/word-examples/` work without the training dataset. The fallback for other examples needs local training videos and their quality manifest. Never load untrusted joblib files.
 
 `requirements-lock.txt` records the original tested Apple-silicon Python 3.9 environment.
+
+## Deploy on Render
+
+Push the deployment files to GitHub, then create a **Blueprint** in the Render dashboard and connect this repository and the branch containing `render.yaml`. The Blueprint creates a Free Docker web service. Open the HTTPS URL from the dashboard after the first deploy completes. Free services can take time to wake after inactivity.
+
+The container serves requests through Gunicorn and packages the checkpoints for both studios. Webcam frames and uploaded clips are processed on the host. Dataset collection is disabled in the container.
+
+After deploying, check that `/healthz` returns `{"status":"ok"}`, `/api/status` reports `trained: true`, and `/api/words/status` reports `showcase50`. Then try the webcam in Alphabet Studio and upload a demonstration clip in Word Studio.
+
+To run the same container locally on a machine with Docker:
+
+```sh
+docker build -t echogesture .
+docker run --rm -p 8080:10000 echogesture
+```
 
 ## Word recognition
 

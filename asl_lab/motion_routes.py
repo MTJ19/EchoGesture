@@ -1,7 +1,7 @@
 import json,re,uuid
 from pathlib import Path
 import joblib,numpy as np
-from flask import Blueprint,request,jsonify
+from flask import Blueprint,abort,current_app,request,jsonify
 from .motion import motion_features,MOTION_VERSION,MOTION_LABELS
 from .motion_path import path_evidence
 
@@ -12,6 +12,8 @@ def motion_routes(root):
     def sequence():
         payload=request.get_json(silent=True)
         if not isinstance(payload,dict):raise ValueError('Send a motion sequence')
+        if payload.get('action') == 'collect' and not current_app.config.get('DEVELOPMENT_TOOLS', True):
+            abort(404)
         frames=payload.get('frames');features=motion_features(frames)
         if payload.get('action')=='collect':
             label,group,split=(payload.get(k,'') for k in ('label','group','split'))

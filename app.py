@@ -1,5 +1,6 @@
 import csv
 import io
+import os
 import re
 import threading
 import uuid
@@ -7,7 +8,7 @@ import time
 from pathlib import Path
 import joblib
 import numpy as np
-from flask import Flask, jsonify, render_template, request
+from flask import Flask, abort, jsonify, render_template, request
 from PIL import Image, ImageOps, UnidentifiedImageError
 from asl_lab.features import FEATURE_VERSION, HandExtractor, LETTERS
 from asl_lab.predict import classify
@@ -23,6 +24,7 @@ def create_app():
     app.register_blueprint(word_routes(ROOT))
     app.config['MAX_CONTENT_LENGTH'] = 8 * 1024 * 1024
     app.config['TEMPLATES_AUTO_RELOAD'] = True
+    app.config['DEVELOPMENT_TOOLS'] = os.getenv('ECHOGESTURE_DEVELOPMENT_TOOLS', '1') == '1'
     lock = threading.Lock()
     state = {'extractor': None, 'bundle': None, 'mtime': None}
 
@@ -56,7 +58,8 @@ def create_app():
 
     @app.get('/')
     def index():
-        return render_template('index.html' if request.args.get('tools') == '1' else 'landing.html', letters=LETTERS)
+        show_tools = app.config['DEVELOPMENT_TOOLS'] and request.args.get('tools') == '1'
+        return render_template('index.html' if show_tools else 'landing.html', letters=LETTERS)
 
     @app.get('/sign')
     def signing():
@@ -68,6 +71,10 @@ def create_app():
             model = bundle()
             return jsonify(trained=model is not None, labels=model['labels'] if model else [],
                            model=model['name'] if model else None)
+
+    @app.get('/healthz')
+    def health():
+        return jsonify(status='ok')
 
     @app.post('/api/predict')
     def predict():
@@ -92,6 +99,8 @@ def create_app():
 
     @app.post('/api/collect')
     def collect():
+        if not app.config['DEVELOPMENT_TOOLS']:
+            abort(404)
         label, group, split = (request.form.get(k, '') for k in ('label', 'group', 'split'))
         if label not in LETTERS or not re.fullmatch(r'[A-Za-z0-9_-]{1,64}', group):
             raise ValueError('Choose a static letter and a signer ID (letters, numbers, dash, underscore)')

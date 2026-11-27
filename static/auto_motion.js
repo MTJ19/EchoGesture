@@ -28,7 +28,7 @@ class AutoMotion {
     if(expected==='little')return ratios[3]>.95&&Math.max(...ratios.slice(0,3))<1.2?'little':null;
     if(expected==='index')return ratios[0]>.9&&Math.max(...ratios.slice(1))<1.2&&ratios[0]-Math.max(...ratios.slice(1))>.1?'index':null;
     if(ratios[3]>1.15&&Math.max(...ratios.slice(0,3))<1.05)return 'little';
-    if(ratios[0]>.95&&Math.max(...ratios.slice(1))<1.05&&ratios[0]-Math.max(...ratios.slice(1))>.18)return 'index';
+    if(ratios[0]>.9&&Math.max(...ratios.slice(1))<1.05&&ratios[0]-Math.max(...ratios.slice(1))>.12)return 'index';
     return null;
   }
   staticQ(result,aspect) {
@@ -49,7 +49,11 @@ class AutoMotion {
       this.steady={label:result.label,shape,frame,since:now};return false;
     }
     const unresolved=['uncertain','incomplete','error','untrained'].includes(this.phase);
-    const changed=this.phase==='recognized'&&this.anchor&&this.shapeDifference(shape,this.anchor)>.08;
+    const zEnding=this.phase==='recognized'&&this.detected?.label==='Z'&&this.kind==='index'&&result.label==='G'&&this.anchor;
+    const shapeChange=this.anchor?this.shapeDifference(shape,this.anchor):0;
+    // Preserve a confirmed Z ending hold, but let a deliberate G pose recover.
+    if(zEnding&&shapeChange<.10)return false;
+    const changed=this.phase==='recognized'&&this.anchor&&shapeChange>.08;
     if((unresolved||changed)&&now-steady.since>=900) {
       this.reset();this.frames=[frame];this.finishedAt=now;return true;
     }
@@ -94,7 +98,8 @@ class AutoMotion {
       if(last&&['recording','classifying'].includes(this.phase)&&now-last.time<=500)return;
       this.reset();return;
     }
-    if(this.staticQ(result,aspect)){this.reset();return;}
+    // A transient static Q guess must not erase an already-started Z trace.
+    if(this.phase==='idle'&&this.staticQ(result,aspect)){this.reset();return;}
     const previous=this.frames.at(-1);
     const frame={points:result.landmarks,time:now,aspect};
     frame.kind=this.handKind(frame)||(result.status==='ok'&&result.label==='I'?'little':null);
@@ -102,7 +107,7 @@ class AutoMotion {
       if(this.phase==='recording'){this.incomplete(frame,now);this.frames=[frame];return;}
       this.reset();
     }
-    this.frames.push(frame);this.frames=this.frames.filter(f=>now-f.time<=600).slice(-120);
+    this.frames.push(frame);this.frames=this.frames.filter(f=>now-f.time<=1000).slice(-120);
     if(this.phase==='classifying')return;
     if(this.recoverStatic(result,frame,now))return;
     if(this.phase!=='idle'&&this.phase!=='recording'&&this.anchor&&this.shapeDifference(this.shape(frame),this.anchor)>.25) {
@@ -112,7 +117,7 @@ class AutoMotion {
     if(this.phase==='recording') {
       if(this.kind&&this.handKind(frame,this.kind)!==this.kind&&!(this.kind==='little'&&result.status==='ok'&&result.label==='I')){
         if(this.lostShapeAt===null)this.lostShapeAt=now;
-        if(now-this.lostShapeAt>=200){
+        if(now-this.lostShapeAt>=350){
           const last=this.segment.at(-1);
           if(this.segment.length>=6&&last.time-this.segment[0].time>=350)await this.finish(last,now);
           else this.incomplete(frame,now);

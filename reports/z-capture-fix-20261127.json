@@ -1,0 +1,378 @@
+{
+  "before": {
+    "summary": {
+      "Z": [
+        4,
+        6
+      ],
+      "J": [
+        3,
+        5
+      ],
+      "NONE": [
+        6,
+        6
+      ]
+    },
+    "rows": [
+      {
+        "path": "datasets/raw/motion-extension/z-0.mp4",
+        "expected": "Z",
+        "decisions": [
+          {
+            "label": "Z",
+            "candidate": "Z",
+            "score": 0.7945876030863618
+          }
+        ],
+        "correct": true
+      },
+      {
+        "path": "datasets/raw/motion-extension/j-0.mp4",
+        "expected": "J",
+        "decisions": [],
+        "correct": false
+      },
+      {
+        "path": "datasets/raw/motion-extension/i-0.mp4",
+        "expected": "NONE",
+        "decisions": [],
+        "correct": true
+      },
+      {
+        "path": "datasets/raw/motion-extension/d-0.mp4",
+        "expected": "NONE",
+        "decisions": [
+          {
+            "label": null,
+            "candidate": "J",
+            "score": 0.8820595120755503
+          }
+        ],
+        "correct": true
+      },
+      {
+        "path": "datasets/raw/motion-extension/q-0.mp4",
+        "expected": "NONE",
+        "decisions": [],
+        "correct": true
+      },
+      {
+        "path": "datasets/raw/motion-extension/j-edf5c4bc.mp4",
+        "expected": "J",
+        "decisions": [
+          {
+            "label": "J",
+            "candidate": "J",
+            "score": 0.7845360043865506
+          }
+        ],
+        "correct": true
+      },
+      {
+        "path": "datasets/raw/motion-extension/j-51f6ea54.mp4",
+        "expected": "J",
+        "decisions": [
+          {
+            "label": "J",
+            "candidate": "J",
+            "score": 0.8590750314367127
+          }
+        ],
+        "correct": true
+      },
+      {
+        "path": "datasets/raw/motion-extension/z-9f3bd0d8.mp4",
+        "expected": "Z",
+        "decisions": [
+          {
+            "label": null,
+            "candidate": "Z",
+            "score": 0.6455855212350442
+          }
+        ],
+        "correct": false
+      },
+      {
+        "path": "datasets/raw/motion-extension/z-0889e087.mp4",
+        "expected": "Z",
+        "decisions": [
+          {
+            "label": "Z",
+            "candidate": "Z",
+            "score": 0.7188727630320693
+          }
+        ],
+        "correct": true
+      },
+      {
+        "path": "a4ee67a6a265411e99d8e93feb5f0472.json",
+        "expected": "J",
+        "decisions": [
+          {
+            "label": "J",
+            "candidate": "J",
+            "score": 0.9933051515613902
+          }
+        ],
+        "correct": true
+      },
+      {
+        "path": "f199062f4ca24e719ec20826bd609efb.json",
+        "expected": "J",
+        "decisions": [
+          {
+            "label": null,
+            "candidate": "J",
+            "score": 0.9906166923677603
+          }
+        ],
+        "correct": false
+      },
+      {
+        "path": "917d7e52a7e54419a92188741b709bd6.json",
+        "expected": "Z",
+        "decisions": [
+          {
+            "label": "Z",
+            "candidate": "Z",
+            "score": 0.7163121135991417
+          }
+        ],
+        "correct": true
+      },
+      {
+        "path": "6d5275203ae6496390be55ebcad907c7.json",
+        "expected": "Z",
+        "decisions": [
+          {
+            "label": "Z",
+            "candidate": "Z",
+            "score": 0.9702280373599933
+          }
+        ],
+        "correct": true
+      },
+      {
+        "path": "72703c402e4f4e658f400097e5e5e000.json",
+        "expected": "Z",
+        "decisions": [],
+        "correct": false
+      },
+      {
+        "path": "ea6941cda08340b8ae87660c23b166c0.json",
+        "expected": "NONE",
+        "decisions": [],
+        "correct": true
+      },
+      {
+        "path": "45da49391dc5488a9784cbcb1b04af0f.json",
+        "expected": "NONE",
+        "decisions": [],
+        "correct": true
+      },
+      {
+        "path": "400b6fe033854281b1f5bc0540a0eb24.json",
+        "expected": "NONE",
+        "decisions": [],
+        "correct": true
+      }
+    ]
+  },
+  "after": {
+    "summary": {
+      "Z": [
+        4,
+        6
+      ],
+      "J": [
+        3,
+        5
+      ],
+      "NONE": [
+        6,
+        6
+      ]
+    },
+    "rows": [
+      {
+        "path": "datasets/raw/motion-extension/z-0.mp4",
+        "expected": "Z",
+        "decisions": [
+          {
+            "label": "Z",
+            "candidate": "Z",
+            "score": 0.7945876030863618
+          }
+        ],
+        "correct": true
+      },
+      {
+        "path": "datasets/raw/motion-extension/j-0.mp4",
+        "expected": "J",
+        "decisions": [],
+        "correct": false
+      },
+      {
+        "path": "datasets/raw/motion-extension/i-0.mp4",
+        "expected": "NONE",
+        "decisions": [],
+        "correct": true
+      },
+      {
+        "path": "datasets/raw/motion-extension/d-0.mp4",
+        "expected": "NONE",
+        "decisions": [
+          {
+            "label": null,
+            "candidate": "J",
+            "score": 0.8820595120755503
+          }
+        ],
+        "correct": true
+      },
+      {
+        "path": "datasets/raw/motion-extension/q-0.mp4",
+        "expected": "NONE",
+        "decisions": [],
+        "correct": true
+      },
+      {
+        "path": "datasets/raw/motion-extension/j-edf5c4bc.mp4",
+        "expected": "J",
+        "decisions": [
+          {
+            "label": "J",
+            "candidate": "J",
+            "score": 0.7845360043865506
+          }
+        ],
+        "correct": true
+      },
+      {
+        "path": "datasets/raw/motion-extension/j-51f6ea54.mp4",
+        "expected": "J",
+        "decisions": [
+          {
+            "label": "J",
+            "candidate": "J",
+            "score": 0.8590750314367127
+          }
+        ],
+        "correct": true
+      },
+      {
+        "path": "datasets/raw/motion-extension/z-9f3bd0d8.mp4",
+        "expected": "Z",
+        "decisions": [
+          {
+            "label": null,
+            "candidate": "Z",
+            "score": 0.6455855212350442
+          }
+        ],
+        "correct": false
+      },
+      {
+        "path": "datasets/raw/motion-extension/z-0889e087.mp4",
+        "expected": "Z",
+        "decisions": [
+          {
+            "label": "Z",
+            "candidate": "Z",
+            "score": 0.7188727630320693
+          }
+        ],
+        "correct": true
+      },
+      {
+        "path": "a4ee67a6a265411e99d8e93feb5f0472.json",
+        "expected": "J",
+        "decisions": [
+          {
+            "label": "J",
+            "candidate": "J",
+            "score": 0.9828577461476146
+          }
+        ],
+        "correct": true
+      },
+      {
+        "path": "f199062f4ca24e719ec20826bd609efb.json",
+        "expected": "J",
+        "decisions": [
+          {
+            "label": null,
+            "candidate": "J",
+            "score": 0.9906166923677603
+          }
+        ],
+        "correct": false
+      },
+      {
+        "path": "917d7e52a7e54419a92188741b709bd6.json",
+        "expected": "Z",
+        "decisions": [
+          {
+            "label": "Z",
+            "candidate": "Z",
+            "score": 0.7163121135991417
+          }
+        ],
+        "correct": true
+      },
+      {
+        "path": "6d5275203ae6496390be55ebcad907c7.json",
+        "expected": "Z",
+        "decisions": [
+          {
+            "label": "Z",
+            "candidate": "Z",
+            "score": 0.9702280373599933
+          }
+        ],
+        "correct": true
+      },
+      {
+        "path": "72703c402e4f4e658f400097e5e5e000.json",
+        "expected": "Z",
+        "decisions": [],
+        "correct": false
+      },
+      {
+        "path": "ea6941cda08340b8ae87660c23b166c0.json",
+        "expected": "NONE",
+        "decisions": [
+          {
+            "label": null,
+            "candidate": "NONE",
+            "score": 0.833497093731974
+          }
+        ],
+        "correct": true
+      },
+      {
+        "path": "45da49391dc5488a9784cbcb1b04af0f.json",
+        "expected": "NONE",
+        "decisions": [
+          {
+            "label": null,
+            "candidate": "NONE",
+            "score": 0.8435118963399266
+          }
+        ],
+        "correct": true
+      },
+      {
+        "path": "400b6fe033854281b1f5bc0540a0eb24.json",
+        "expected": "NONE",
+        "decisions": [],
+        "correct": true
+      }
+    ]
+  },
+  "limitations": [
+    "Previously inspected development replay, not independent/live accuracy.",
+    "Capture/display fix only; model weights unchanged."
+  ]
+}

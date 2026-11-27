@@ -54,3 +54,7 @@
   .word-studio .word-workspace > :first-child { padding: 12px; }
   .word-studio .intro p { margin-bottom: 8px; }
 }
+
+#wordUploadInfo{overflow-wrap:anywhere;margin:10px 0 0}
+
+.upload-progress{margin-top:14px}.upload-progress[hidden]{display:none}.upload-progress label{display:block;font-size:14px;color:#215a47;margin-bottom:6px}.upload-progress progress{display:block;width:100%;height:12px;accent-color:#205640}

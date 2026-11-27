@@ -1,11 +1,9 @@
-EchoGesture selected demonstration clips
+Selected presentation examples — 27 November 2026
 
-15 words, 44 clips, copied from existing local files.
+15 upload-test words, all absent from the in-app examples dropdown. Each has one successful video. Every included video was rechecked through the unchanged showcase50 pipeline.
 
-Upload a clip at http://127.0.0.1:8080/words. Folder names are the expected words.
+Words: language, orange, teacher, son, clothes, enjoy, mother, paint, like, family, hearing, thin, meet, before, wait
 
-Selected by combined first-batch and retest accuracy in reports/showcase-retest19-summary.csv, then attempt count, then alphabetical order. Only previously correct clips were copied. See word-results.csv for ALL attempts for each selected word, including failures, and sources.csv for clip provenance and SHA-256 hashes.
+Upload the word-named MP4 at http://127.0.0.1:8080/words. These are selected, previously inspected demonstrations, not an unseen test or a live accuracy guarantee. Chair/book/go use earlier evaluated ASL Citizen clips; provenance for every file is in sources.csv. All remain excluded from future training. Source rights remain with original owners.
 
-These are cherry-picked demonstration examples, not an independent accuracy test. No training, model changes, or downloads were performed. Recorded results used models/word81-grammar-candidate.joblib. Original source rights still apply; these local copies do not grant redistribution rights.
-
-Words: language, orange, son, table, teacher, clothes, enjoy, mother, dance, family, like, no, paint, white, hearing
+Full new-clip results remain in reports/presentation-unseen-20261127-summary.html. Previous testproj contents were preserved locally in datasets/raw/testproj-before-distinct15-20261127.

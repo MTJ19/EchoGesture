@@ -1,0 +1,51 @@
+word,correct,attempted,accuracy,wilson_lower_95,assessment,misses
+class,3,3,1.0,0.4384939195509822,promising_3_of_3,{}
+purple,3,3,1.0,0.4384939195509822,promising_3_of_3,{}
+now,2,2,1.0,0.3423719528896193,limited_perfect,{}
+white,2,2,1.0,0.3423719528896193,limited_perfect,{}
+apple,2,3,0.6666666666666666,0.20765495512648788,mixed,{'uncertain_word': 1}
+color,2,3,0.6666666666666666,0.20765495512648788,mixed,{'uncertain_word': 1}
+door,2,3,0.6666666666666666,0.20765495512648788,mixed,{'uncertain_word': 1}
+green,2,3,0.6666666666666666,0.20765495512648788,mixed,{'uncertain_word': 1}
+red,2,3,0.6666666666666666,0.20765495512648788,mixed,{'uncertain_word': 1}
+work,2,3,0.6666666666666666,0.20765495512648788,mixed,{'computer': 1}
+dance,1,1,1.0,0.20654329147389294,limited_perfect,{}
+grammar,1,1,1.0,0.20654329147389294,limited_perfect,{}
+hot,1,1,1.0,0.20654329147389294,limited_perfect,{}
+visit,1,1,1.0,0.20654329147389294,limited_perfect,{}
+accident,1,2,0.5,0.09452865480086611,mixed,{'uncertain_word': 1}
+before,1,2,0.5,0.09452865480086611,mixed,{'uncertain_word': 1}
+cow,1,2,0.5,0.09452865480086611,mixed,{'uncertain_word': 1}
+son,1,2,0.5,0.09452865480086611,mixed,{'enjoy': 1}
+wait,1,2,0.5,0.09452865480086611,mixed,{'uncertain_word': 1}
+brown,1,3,0.3333333333333333,0.061490315276160515,mixed,"{'uncertain_word': 1, 'mother': 1}"
+like,1,3,0.3333333333333333,0.061490315276160515,mixed,"{'yes': 1, 'uncertain_word': 1}"
+no,1,3,0.3333333333333333,0.061490315276160515,mixed,{'computer': 2}
+play,1,3,0.3333333333333333,0.061490315276160515,mixed,"{'uncertain_word': 1, 'before': 1}"
+computer,0,3,0.0,0.0,failed,"{'work': 1, 'go': 1, 'year': 1}"
+pink,0,3,0.0,0.0,failed,"{'thin': 1, 'uncertain_word': 2}"
+water,0,3,0.0,0.0,failed,"{'mother': 1, 'uncertain_word': 2}"
+yellow,0,3,0.0,0.0,failed,"{'like': 1, 'hot': 1, 'uncertain_word': 1}"
+later,0,2,0.0,0.0,failed,{'uncertain_word': 2}
+secretary,0,2,0.0,0.0,failed,{'uncertain_word': 2}
+family,0,1,0.0,0.0,failed,{'uncertain_word': 1}
+man,0,1,0.0,0.0,failed,{'uncertain_word': 1}
+black,0,0,,0,no_new_clips,{}
+book,0,0,,0,no_new_clips,{}
+chair,0,0,,0,no_new_clips,{}
+clothes,0,0,,0,no_new_clips,{}
+enjoy,0,0,,0,no_new_clips,{}
+finish,0,0,,0,no_new_clips,{}
+go,0,0,,0,no_new_clips,{}
+hearing,0,0,,0,no_new_clips,{}
+language,0,0,,0,no_new_clips,{}
+meet,0,0,,0,no_new_clips,{}
+mother,0,0,,0,no_new_clips,{}
+need,0,0,,0,no_new_clips,{}
+orange,0,0,,0,no_new_clips,{}
+paint,0,0,,0,no_new_clips,{}
+table,0,0,,0,no_new_clips,{}
+teacher,0,0,,0,no_new_clips,{}
+thin,0,0,,0,no_new_clips,{}
+year,0,0,,0,no_new_clips,{}
+yes,0,0,,0,no_new_clips,{}

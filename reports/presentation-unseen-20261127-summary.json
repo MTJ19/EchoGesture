@@ -1,0 +1,528 @@
+{
+  "variant": "showcase50",
+  "model_sha256": "cf9a628fd427fe041ea419bd0ad0642e464535a137ce054fc11ad066de2b3d73",
+  "correct": 35,
+  "total": 72,
+  "words_tested": 31,
+  "words_targeted": 50,
+  "ranked_words": [
+    {
+      "word": "class",
+      "correct": 3,
+      "attempted": 3,
+      "accuracy": 1.0,
+      "wilson_lower_95": 0.4384939195509822,
+      "assessment": "promising_3_of_3",
+      "misses": {}
+    },
+    {
+      "word": "purple",
+      "correct": 3,
+      "attempted": 3,
+      "accuracy": 1.0,
+      "wilson_lower_95": 0.4384939195509822,
+      "assessment": "promising_3_of_3",
+      "misses": {}
+    },
+    {
+      "word": "now",
+      "correct": 2,
+      "attempted": 2,
+      "accuracy": 1.0,
+      "wilson_lower_95": 0.3423719528896193,
+      "assessment": "limited_perfect",
+      "misses": {}
+    },
+    {
+      "word": "white",
+      "correct": 2,
+      "attempted": 2,
+      "accuracy": 1.0,
+      "wilson_lower_95": 0.3423719528896193,
+      "assessment": "limited_perfect",
+      "misses": {}
+    },
+    {
+      "word": "apple",
+      "correct": 2,
+      "attempted": 3,
+      "accuracy": 0.6666666666666666,
+      "wilson_lower_95": 0.20765495512648788,
+      "assessment": "mixed",
+      "misses": {
+        "uncertain_word": 1
+      }
+    },
+    {
+      "word": "color",
+      "correct": 2,
+      "attempted": 3,
+      "accuracy": 0.6666666666666666,
+      "wilson_lower_95": 0.20765495512648788,
+      "assessment": "mixed",
+      "misses": {
+        "uncertain_word": 1
+      }
+    },
+    {
+      "word": "door",
+      "correct": 2,
+      "attempted": 3,
+      "accuracy": 0.6666666666666666,
+      "wilson_lower_95": 0.20765495512648788,
+      "assessment": "mixed",
+      "misses": {
+        "uncertain_word": 1
+      }
+    },
+    {
+      "word": "green",
+      "correct": 2,
+      "attempted": 3,
+      "accuracy": 0.6666666666666666,
+      "wilson_lower_95": 0.20765495512648788,
+      "assessment": "mixed",
+      "misses": {
+        "uncertain_word": 1
+      }
+    },
+    {
+      "word": "red",
+      "correct": 2,
+      "attempted": 3,
+      "accuracy": 0.6666666666666666,
+      "wilson_lower_95": 0.20765495512648788,
+      "assessment": "mixed",
+      "misses": {
+        "uncertain_word": 1
+      }
+    },
+    {
+      "word": "work",
+      "correct": 2,
+      "attempted": 3,
+      "accuracy": 0.6666666666666666,
+      "wilson_lower_95": 0.20765495512648788,
+      "assessment": "mixed",
+      "misses": {
+        "computer": 1
+      }
+    },
+    {
+      "word": "dance",
+      "correct": 1,
+      "attempted": 1,
+      "accuracy": 1.0,
+      "wilson_lower_95": 0.20654329147389294,
+      "assessment": "limited_perfect",
+      "misses": {}
+    },
+    {
+      "word": "grammar",
+      "correct": 1,
+      "attempted": 1,
+      "accuracy": 1.0,
+      "wilson_lower_95": 0.20654329147389294,
+      "assessment": "limited_perfect",
+      "misses": {}
+    },
+    {
+      "word": "hot",
+      "correct": 1,
+      "attempted": 1,
+      "accuracy": 1.0,
+      "wilson_lower_95": 0.20654329147389294,
+      "assessment": "limited_perfect",
+      "misses": {}
+    },
+    {
+      "word": "visit",
+      "correct": 1,
+      "attempted": 1,
+      "accuracy": 1.0,
+      "wilson_lower_95": 0.20654329147389294,
+      "assessment": "limited_perfect",
+      "misses": {}
+    },
+    {
+      "word": "accident",
+      "correct": 1,
+      "attempted": 2,
+      "accuracy": 0.5,
+      "wilson_lower_95": 0.09452865480086611,
+      "assessment": "mixed",
+      "misses": {
+        "uncertain_word": 1
+      }
+    },
+    {
+      "word": "before",
+      "correct": 1,
+      "attempted": 2,
+      "accuracy": 0.5,
+      "wilson_lower_95": 0.09452865480086611,
+      "assessment": "mixed",
+      "misses": {
+        "uncertain_word": 1
+      }
+    },
+    {
+      "word": "cow",
+      "correct": 1,
+      "attempted": 2,
+      "accuracy": 0.5,
+      "wilson_lower_95": 0.09452865480086611,
+      "assessment": "mixed",
+      "misses": {
+        "uncertain_word": 1
+      }
+    },
+    {
+      "word": "son",
+      "correct": 1,
+      "attempted": 2,
+      "accuracy": 0.5,
+      "wilson_lower_95": 0.09452865480086611,
+      "assessment": "mixed",
+      "misses": {
+        "enjoy": 1
+      }
+    },
+    {
+      "word": "wait",
+      "correct": 1,
+      "attempted": 2,
+      "accuracy": 0.5,
+      "wilson_lower_95": 0.09452865480086611,
+      "assessment": "mixed",
+      "misses": {
+        "uncertain_word": 1
+      }
+    },
+    {
+      "word": "brown",
+      "correct": 1,
+      "attempted": 3,
+      "accuracy": 0.3333333333333333,
+      "wilson_lower_95": 0.061490315276160515,
+      "assessment": "mixed",
+      "misses": {
+        "uncertain_word": 1,
+        "mother": 1
+      }
+    },
+    {
+      "word": "like",
+      "correct": 1,
+      "attempted": 3,
+      "accuracy": 0.3333333333333333,
+      "wilson_lower_95": 0.061490315276160515,
+      "assessment": "mixed",
+      "misses": {
+        "yes": 1,
+        "uncertain_word": 1
+      }
+    },
+    {
+      "word": "no",
+      "correct": 1,
+      "attempted": 3,
+      "accuracy": 0.3333333333333333,
+      "wilson_lower_95": 0.061490315276160515,
+      "assessment": "mixed",
+      "misses": {
+        "computer": 2
+      }
+    },
+    {
+      "word": "play",
+      "correct": 1,
+      "attempted": 3,
+      "accuracy": 0.3333333333333333,
+      "wilson_lower_95": 0.061490315276160515,
+      "assessment": "mixed",
+      "misses": {
+        "uncertain_word": 1,
+        "before": 1
+      }
+    },
+    {
+      "word": "computer",
+      "correct": 0,
+      "attempted": 3,
+      "accuracy": 0.0,
+      "wilson_lower_95": 0.0,
+      "assessment": "failed",
+      "misses": {
+        "work": 1,
+        "go": 1,
+        "year": 1
+      }
+    },
+    {
+      "word": "pink",
+      "correct": 0,
+      "attempted": 3,
+      "accuracy": 0.0,
+      "wilson_lower_95": 0.0,
+      "assessment": "failed",
+      "misses": {
+        "thin": 1,
+        "uncertain_word": 2
+      }
+    },
+    {
+      "word": "water",
+      "correct": 0,
+      "attempted": 3,
+      "accuracy": 0.0,
+      "wilson_lower_95": 0.0,
+      "assessment": "failed",
+      "misses": {
+        "mother": 1,
+        "uncertain_word": 2
+      }
+    },
+    {
+      "word": "yellow",
+      "correct": 0,
+      "attempted": 3,
+      "accuracy": 0.0,
+      "wilson_lower_95": 0.0,
+      "assessment": "failed",
+      "misses": {
+        "like": 1,
+        "hot": 1,
+        "uncertain_word": 1
+      }
+    },
+    {
+      "word": "later",
+      "correct": 0,
+      "attempted": 2,
+      "accuracy": 0.0,
+      "wilson_lower_95": 0.0,
+      "assessment": "failed",
+      "misses": {
+        "uncertain_word": 2
+      }
+    },
+    {
+      "word": "secretary",
+      "correct": 0,
+      "attempted": 2,
+      "accuracy": 0.0,
+      "wilson_lower_95": 0.0,
+      "assessment": "failed",
+      "misses": {
+        "uncertain_word": 2
+      }
+    },
+    {
+      "word": "family",
+      "correct": 0,
+      "attempted": 1,
+      "accuracy": 0.0,
+      "wilson_lower_95": 0.0,
+      "assessment": "failed",
+      "misses": {
+        "uncertain_word": 1
+      }
+    },
+    {
+      "word": "man",
+      "correct": 0,
+      "attempted": 1,
+      "accuracy": 0.0,
+      "wilson_lower_95": 0.0,
+      "assessment": "failed",
+      "misses": {
+        "uncertain_word": 1
+      }
+    },
+    {
+      "word": "black",
+      "correct": 0,
+      "attempted": 0,
+      "accuracy": null,
+      "wilson_lower_95": 0,
+      "assessment": "no_new_clips",
+      "misses": {}
+    },
+    {
+      "word": "book",
+      "correct": 0,
+      "attempted": 0,
+      "accuracy": null,
+      "wilson_lower_95": 0,
+      "assessment": "no_new_clips",
+      "misses": {}
+    },
+    {
+      "word": "chair",
+      "correct": 0,
+      "attempted": 0,
+      "accuracy": null,
+      "wilson_lower_95": 0,
+      "assessment": "no_new_clips",
+      "misses": {}
+    },
+    {
+      "word": "clothes",
+      "correct": 0,
+      "attempted": 0,
+      "accuracy": null,
+      "wilson_lower_95": 0,
+      "assessment": "no_new_clips",
+      "misses": {}
+    },
+    {
+      "word": "enjoy",
+      "correct": 0,
+      "attempted": 0,
+      "accuracy": null,
+      "wilson_lower_95": 0,
+      "assessment": "no_new_clips",
+      "misses": {}
+    },
+    {
+      "word": "finish",
+      "correct": 0,
+      "attempted": 0,
+      "accuracy": null,
+      "wilson_lower_95": 0,
+      "assessment": "no_new_clips",
+      "misses": {}
+    },
+    {
+      "word": "go",
+      "correct": 0,
+      "attempted": 0,
+      "accuracy": null,
+      "wilson_lower_95": 0,
+      "assessment": "no_new_clips",
+      "misses": {}
+    },
+    {
+      "word": "hearing",
+      "correct": 0,
+      "attempted": 0,
+      "accuracy": null,
+      "wilson_lower_95": 0,
+      "assessment": "no_new_clips",
+      "misses": {}
+    },
+    {
+      "word": "language",
+      "correct": 0,
+      "attempted": 0,
+      "accuracy": null,
+      "wilson_lower_95": 0,
+      "assessment": "no_new_clips",
+      "misses": {}
+    },
+    {
+      "word": "meet",
+      "correct": 0,
+      "attempted": 0,
+      "accuracy": null,
+      "wilson_lower_95": 0,
+      "assessment": "no_new_clips",
+      "misses": {}
+    },
+    {
+      "word": "mother",
+      "correct": 0,
+      "attempted": 0,
+      "accuracy": null,
+      "wilson_lower_95": 0,
+      "assessment": "no_new_clips",
+      "misses": {}
+    },
+    {
+      "word": "need",
+      "correct": 0,
+      "attempted": 0,
+      "accuracy": null,
+      "wilson_lower_95": 0,
+      "assessment": "no_new_clips",
+      "misses": {}
+    },
+    {
+      "word": "orange",
+      "correct": 0,
+      "attempted": 0,
+      "accuracy": null,
+      "wilson_lower_95": 0,
+      "assessment": "no_new_clips",
+      "misses": {}
+    },
+    {
+      "word": "paint",
+      "correct": 0,
+      "attempted": 0,
+      "accuracy": null,
+      "wilson_lower_95": 0,
+      "assessment": "no_new_clips",
+      "misses": {}
+    },
+    {
+      "word": "table",
+      "correct": 0,
+      "attempted": 0,
+      "accuracy": null,
+      "wilson_lower_95": 0,
+      "assessment": "no_new_clips",
+      "misses": {}
+    },
+    {
+      "word": "teacher",
+      "correct": 0,
+      "attempted": 0,
+      "accuracy": null,
+      "wilson_lower_95": 0,
+      "assessment": "no_new_clips",
+      "misses": {}
+    },
+    {
+      "word": "thin",
+      "correct": 0,
+      "attempted": 0,
+      "accuracy": null,
+      "wilson_lower_95": 0,
+      "assessment": "no_new_clips",
+      "misses": {}
+    },
+    {
+      "word": "year",
+      "correct": 0,
+      "attempted": 0,
+      "accuracy": null,
+      "wilson_lower_95": 0,
+      "assessment": "no_new_clips",
+      "misses": {}
+    },
+    {
+      "word": "yes",
+      "correct": 0,
+      "attempted": 0,
+      "accuracy": null,
+      "wilson_lower_95": 0,
+      "assessment": "no_new_clips",
+      "misses": {}
+    }
+  ],
+  "limitations": [
+    "Source/hash-screened new clips; unseen signer identities and re-encoded duplicates cannot be conclusively verified.",
+    "Clips are selected by availability before inference; exact dictionary filenames can still contain lexical variants.",
+    "Only three clips per word were targeted. Results are small-sample screening, not reliable live accuracy.",
+    "All predictions and detector failures count. Words without new clips are untested, not failed.",
+    "Ranking selects on this evaluation, so presentation examples are selected demonstrations, not a new independent test.",
+    "Model unchanged; these clips must remain excluded from future training."
+  ],
+  "supplemental_acquisition": {
+    "attempted_sources": 53,
+    "usable_clips": 0,
+    "manifest": "datasets/raw/presentation-supplement-20261127/sources.json"
+  }
+}

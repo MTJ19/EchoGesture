@@ -114,12 +114,7 @@ Training compares SVM, Random Forest and KNN, selects on validation macro F1 and
 - `reports/`: recorded evaluation evidence
 - `testproj/`: selected demonstration clips and source records
 - `notebooks/`: Colab showcase
-- `tests/`: automated regression checks
 
-```sh
-python -m pytest -q
-```
-
-Automated checks verify implementation behaviour; passing them does not establish recognition accuracy.
+The `tests/` folder was removed at the project owner’s request. See [the word ranking](ranking.md) for recorded per-word evaluation results; those results do not establish live recognition accuracy.
 
 For context, see the [project report](docs/PROJECT_REPORT.md), [demo checklist](docs/DEMO_CHECKLIST.md), [evaluation protocol](docs/EVALUATION_MODE.md), [continuation notes](docs/ECHOGESTURE_START.md) and [`memory.md`](memory.md). [`PROJECT_HANDOFF.md`](PROJECT_HANDOFF.md) preserves earlier history; some milestones there are superseded by the current implementation.

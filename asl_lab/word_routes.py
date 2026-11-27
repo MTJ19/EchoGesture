@@ -53,7 +53,9 @@ def word_routes(root):
     @bp.get('/words')
     def page():
         bundle=load()
-        return render_template('words.html',candidate=candidate, svm=variant=='word20-svm', words=bundle['labels'] if bundle else [])
+        words = bundle['labels'] if bundle else []
+        examples = sorted(word for word in words if (root/'static/word-examples'/word/(word+'.mp4')).is_file())
+        return render_template('words.html',candidate=candidate, svm=variant=='word20-svm', words=words, example_words=examples)
 
     @bp.get('/api/words/status')
     def status():
@@ -65,6 +67,9 @@ def word_routes(root):
     def example(word):
         bundle=load()
         if bundle is None or word not in bundle['labels']:return jsonify(error='Unknown supported word'),404
+        selected = root/'static/word-examples'/word/(word+'.mp4')
+        if selected.is_file():
+            return send_file(selected,mimetype='video/mp4',conditional=True)
         path=root/'datasets/preprocessed/words/quality-manifest.json'
         if not path.exists():return jsonify(error='Local examples unavailable'),404
         rows=json.loads(path.read_text())

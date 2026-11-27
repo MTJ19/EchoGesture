@@ -1,44 +1,23 @@
 # EchoGesture
 
-[Open the college ML showcase in Google Colab](https://colab.research.google.com/github/MTJ19/EchoGesture/blob/main/notebooks/EchoGesture_Showcase.ipynb)
+EchoGesture is an experimental ASL recognition app built with Flask, MediaPipe and scikit-learn. It provides separate studios for fingerspelling and short, isolated word signs, with text composition and speech playback.
 
-The notebook supports uploaded letter images, J/Z videos, 81-word videos, model inspection, and labelled evaluation. Select the 2026.07 Colab runtime (Python 3.12). Sign into GitHub to access this private repository.
+## Current status — 27 November 2026
 
-EchoGesture builds on the existing ASL Landmark Lab. **Phase 1** is the 24-letter static recognizer. Further phases add word-sign data, temporal recognition, live captions and measured local inference. The final website or app interface is undecided. See [the development roadmap](docs/EchoGesture_Development_Roadmap.docx) and [continuation notes](docs/ECHOGESTURE_START.md).
+| Area | Implemented behaviour |
+| --- | --- |
+| Alphabet Studio | 24 static letters (A–I and K–Y), webcam and image/video uploads, landmark overlay and stable letter recognition |
+| J/Z motion | Experimental automatic recognition in webcam/video input; reliability remains unresolved |
+| Word Studio | Default 50-word showcase backed by the existing 81-class checkpoint; one recorded or uploaded sign at a time |
+| Text and speech | Manual letter assembly, spaces, deletion, clearing, copying and full-message speech; letter/word voice playback |
+| Interface | Green-and-cream landing page, sage hand artwork, smooth “How it works” scrolling and enlarged camera previews in both studios |
+| Demonstration clips | `testproj/` contains 44 previously successful clips across 15 words, with results and source records |
 
-**Continuing this project? Read [PROJECT_HANDOFF.md](PROJECT_HANDOFF.md) first** for the saved workflow, current state, diagnostic findings and next upgrade steps.
+This is isolated-sign recognition and manual fingerspelling composition. Continuous sign-language translation, automatic sentence recognition and reliable general webcam accuracy have not been established.
 
-Local ML lab for **24 static ASL fingerspelling letters** (A–Y excluding J; Z also excluded). Webcam, uploaded images and browser-playable videos share the same normalized-landmark classifier. The alphabet workspace recognizes static signs. The separate word workspace processes short temporal video clips.
+## Run locally
 
-## Latest local studio
-
-The completed 80-word candidate is included in `models/word80-priority-wlasl-citizen-svm.joblib`.
-After installing the requirements, launch it with:
-
-```sh
-ECHOGESTURE_WORD_MODEL=word80-svm python app.py
-```
-
-Open http://127.0.0.1:8080/words for its current vocabulary or /sign for the alphabet studio.
-The default configuration loads the completed 80-word model.
-Recorded test scores vary by dataset and vocabulary. See the reports directory for measured comparisons.
-Raw videos, derived landmark caches and third-party archives require separate acquisition under their dataset licences.
-The landing-page template licence and required credit links are retained.
-
-## Word recognition
-
-The default Word Studio loads the trained **80-word model**.
-Run `python app.py`, then open http://127.0.0.1:8080/words.
-The vocabulary shown on the page comes directly from the loaded checkpoint.
-Use **Speak result** to hear a prediction, or enable **Auto voice**.
-
-The 80-word checkpoint is the default experimental recognizer.
-Evaluation reports record dataset-specific accuracy and limitations.
-The earlier five-word model remains available with `ECHOGESTURE_WORD_MODEL=prototype`.
-
-## Run
-
-Python 3.9–3.12 recommended. The current environment was installed with Python 3.9 on Apple silicon. Use the pinned MediaPipe version: newer releases may remove `mp.solutions`.
+Use Python 3.9–3.12 and the pinned MediaPipe version in `requirements.txt`. Newer MediaPipe releases may not expose the legacy `mp.solutions` API used here.
 
 ```sh
 python3 -m venv .venv
@@ -47,15 +26,72 @@ pip install -r requirements.txt
 python app.py
 ```
 
-Open http://127.0.0.1:8080 for the landing page; choose **Start signing** to open `/sign` and allow browser camera access. The app displays “No trained classifier” until a real model is trained. Do not load joblib files from untrusted sources. The Flask development server binds only to this computer.
+Open:
 
-The signing workspace uses a fixed **30%** acceptance setting, as requested during live testing. This is a provisional live setting, not a validated optimum; lower cutoffs can accept more wrong signs. The saved model and published baseline evaluation remain at **70%**. No-hand/multiple-hand rejection and four-frame stability still apply. Webcam reliability is not established by the public-dataset pilot.
+- [Landing page](http://127.0.0.1:8080/)
+- [Alphabet Studio](http://127.0.0.1:8080/sign)
+- [Word Studio](http://127.0.0.1:8080/words)
+- [Alphabet development tools](http://127.0.0.1:8080/sign?tools=1)
 
-The local workspace now includes a genuinely trained 24-class SVM. The public repository contains source and reports, with data/weights reproducible using the steps below. Verified pilot test accuracy: **90.98%** on extracted images from the held-out signer; see [full results and limitations](reports/RESULTS.md). This is not a general webcam accuracy claim. `requirements-lock.txt` records the tested Apple-silicon Python 3.9 environment.
+Allow camera access when prompted. Word recordings are three seconds; uploaded word clips must be no longer than ten seconds and no larger than 8 MB. Clips are deleted after prediction and are not automatically added to training. The development server binds to this computer only.
 
-## Dataset and training
+**A fresh clone does not include trained weights, the full research datasets or cached landmarks.** Install dependencies and obtain or reproduce the required trusted model artifacts before expecting recognition. The existing local workspace contains those artifacts. Example-video playback additionally needs local training videos and their quality manifest. Never load untrusted joblib files.
 
-Collect consented images using the interface, or import ASLYset (see [dataset provenance](docs/dataset.md)). Use a stable signer ID, not a new ID per frame/session. Keep a person's recordings in one partition. The minimum pilot needs at least one different signer in each of train, validation and test, with every selected letter represented in all three. Prefer several signers per partition for a stronger study.
+`requirements-lock.txt` records the original tested Apple-silicon Python 3.9 environment.
+
+## Word recognition
+
+When `models/word81-grammar-candidate.joblib` is present, the default is `showcase50`. The displayed vocabulary is defined in [`config/showcase50.json`](config/showcase50.json). This is a restricted interface over the 81-class model, not a newly trained 50-class model. A top prediction outside the showcase vocabulary is withheld.
+
+The SVM variants also require the base `models/words20-candidate.joblib` bundle. Without the 81-class checkpoint, default selection falls back to the available 80-word checkpoint or the earlier prototype; missing required artifacts prevent recognition.
+
+To select a variant explicitly:
+
+```sh
+ECHOGESTURE_WORD_MODEL=showcase50 python app.py
+# Full 81-class vocabulary:
+ECHOGESTURE_WORD_MODEL=word81-svm python app.py
+# Earlier 80-word checkpoint:
+ECHOGESTURE_WORD_MODEL=word80-svm python app.py
+```
+
+The 50 showcase words are:
+
+> accident, apple, before, black, book, brown, chair, class, clothes, color, computer, cow, dance, door, enjoy, family, finish, go, grammar, green, hearing, hot, language, later, like, man, meet, mother, need, no, now, orange, paint, pink, play, purple, red, secretary, son, table, teacher, thin, visit, wait, water, white, work, year, yellow, yes.
+
+Use **Speak result** or **Enable voice** for spoken predictions. Unfamiliar signs can still receive incorrect supported labels; model decision scores are not calibrated confidence.
+
+## Recorded evaluation and limitations
+
+| Evaluation | Recorded result | Interpretation |
+| --- | --- | --- |
+| Original static-letter baseline | 90.98% accuracy on 1,198 successfully extracted held-out-signer images | Public-dataset pilot; does not measure the later personalized model or live camera reliability |
+| Dictionary word screening | 53/86 correct across 44 words | Existing 81-class upload pipeline; small, now-inspected evaluation batch |
+| Additional word retest | 14/28 correct across 16 previously promising words | Shows that initial 2/2 results did not consistently repeat |
+
+Language, orange and son scored 4/4 across the screening and retest; table and teacher scored 3/3. These small selected counts do not establish general accuracy. Source/hash checks do not prove signer independence or exclude every re-encoded duplicate. Screening used the full 81-class pipeline, rather than a separately evaluated 50-class model.
+
+See [`reports/RESULTS.md`](reports/RESULTS.md), [`reports/showcase-fresh50-summary.csv`](reports/showcase-fresh50-summary.csv) and [`reports/showcase-retest19-summary.csv`](reports/showcase-retest19-summary.csv).
+
+The live static acceptance setting remains 30%, with four-frame stability and no-hand/multiple-hand rejection. The original saved baseline used 70%. Lowering the cutoff can increase incorrect acceptance. J/Z motion is enabled experimentally; its development replays and synthetic checks are not independent live evaluations.
+
+## Try the selected demonstration clips
+
+[`testproj/`](testproj/) groups 44 clips by 15 expected words: clothes, dance, enjoy, family, hearing, language, like, mother, no, orange, paint, son, table, teacher and white.
+
+Upload a clip in Word Studio. Read [`testproj/README.txt`](testproj/README.txt), [`sources.csv`](testproj/sources.csv) and [`word-results.csv`](testproj/word-results.csv) for provenance and complete per-word attempt counts. These clips were selected because they previously worked; they are demonstration examples, not a fresh accuracy test. Original source rights still apply.
+
+## Google Colab showcase
+
+[Open the showcase notebook](https://colab.research.google.com/github/MTJ19/EchoGesture/blob/main/notebooks/EchoGesture_Showcase.ipynb).
+
+The notebook supports letter-image uploads, experimental J/Z videos, 81-word video inference, model inspection and labelled evaluation. It targets the 2026.07 Colab runtime with Python 3.12. Authentication may be needed for repository access, and required model/data artifacts must be available. Hosted Colab execution has not been fully verified. Uploaded media is processed in the Colab runtime, rather than solely on your computer.
+
+## Data and training
+
+Read [`datasets/README.md`](datasets/README.md) and [`datasets/DATASET_REPORT.md`](datasets/DATASET_REPORT.md) for sources, licences, preprocessing and actual training roles. Raw media is under `datasets/raw/`; derived data is under `datasets/preprocessed/`. The historical `data/` path is a compatibility link.
+
+To reproduce the original static baseline:
 
 ```sh
 python scripts/download_aslyset.py
@@ -65,40 +101,25 @@ python scripts/extract.py data/aslyset-manifest.csv
 python -m asl_lab.train
 ```
 
-For your own collected images instead:
+Training compares SVM, Random Forest and KNN, selects on validation macro F1 and writes `models/classifier.joblib` and evaluation reports. It checks partition/group overlap, duplicate image hashes and missing classes. Preserve existing models and reports before rerunning training. Keep each signer in one partition, and keep inspected evaluation/demo clips out of future fitting.
 
-```sh
-python scripts/extract.py data/manifest.csv
-python -m asl_lab.train
-```
+## Repository layout and checks
 
-The CSV columns are `path,label,group,split`; paths are relative to the CSV. Partitions are `train`, `validation`, `test`. Extractor failures are saved beside the landmark JSONL. Training rejects groups or identical image hashes crossing partitions and missing classes. It compares SVM, Random Forest and KNN, selects only on validation macro F1, and writes `models/classifier.joblib` and `reports/evaluation.json`. Restart/refresh the app after training to update the model badge.
-
-## Project layout
-
-- `asl_lab/`: normalization, MediaPipe extraction, classification and training
-- `app.py`, `templates/`, `static/`: local Flask/browser app
-- `scripts/`: public data acquisition/import and feature extraction
-- `data/raw/`, `data/processed/`, `models/`: local images, features and trusted artifacts (excluded from Git)
-- `reports/`: real evaluation reports; test fixture scores are never published as sign accuracy
-- `docs/`: [architecture](docs/architecture.md), [dataset](docs/dataset.md), [evaluation](docs/evaluation.md), [demo](docs/demo.md), [references](docs/references.md)
+- `app.py`, `templates/`, `static/`: Flask app and browser interface
+- `asl_lab/`: landmark processing, classifiers and inference routes
+- `config/`: showcase vocabulary and model-related configuration
+- `scripts/`: acquisition, preprocessing, training and evaluation utilities
+- `models/`: local trusted checkpoints, excluded from Git
+- `datasets/`: dataset documentation and ignored research media/caches
+- `reports/`: recorded evaluation evidence
+- `testproj/`: selected demonstration clips and source records
+- `notebooks/`: Colab showcase
+- `tests/`: automated regression checks
 
 ```sh
 python -m pytest -q
 ```
 
-No full-language translation or interpreter replacement is claimed. Predictions can be wrong, including confident mistakes on unfamiliar gestures.
+Automated checks verify implementation behaviour; passing them does not establish recognition accuracy.
 
-## Current application and project documentation
-
-The main workspace recognizes static letters and supports manual message composition with spaces, deletion, copying and full-message speech. J/Z remains unreliable and is available only in experimental Development tools (`/sign?tools=1`). The original benchmark does not measure the later personalized model.
-
-- [Project report](docs/PROJECT_REPORT.md)
-- [Demo checklist and viva preparation](docs/DEMO_CHECKLIST.md)
-- [Live evaluation protocol](docs/EVALUATION_MODE.md)
-
-## Organized ML datasets
-
-Start with [datasets/README.md](datasets/README.md) and the [dataset report](datasets/DATASET_REPORT.md) for audited source counts, preprocessing, exclusions and actual training roles. Raw media lives in `datasets/raw/`; derived data in `datasets/preprocessed/`. Historical `data/` paths continue to work through a compatibility link. The local SHA-256 inventory can be verified with `python scripts/verify_dataset_inventory.py`.
-
-The public landing page includes original procedural particle artwork. Optional reference-derived local geometry is ignored by Git; see [frontend provenance](docs/FRONTEND_REFERENCE.md). Private datasets and trained weights are not shipped.
+For context, see the [project report](docs/PROJECT_REPORT.md), [demo checklist](docs/DEMO_CHECKLIST.md), [evaluation protocol](docs/EVALUATION_MODE.md), [continuation notes](docs/ECHOGESTURE_START.md) and [`memory.md`](memory.md). [`PROJECT_HANDOFF.md`](PROJECT_HANDOFF.md) preserves earlier history; some milestones there are superseded by the current implementation.

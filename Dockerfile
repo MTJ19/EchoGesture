@@ -18,6 +18,7 @@ RUN pip install --no-cache-dir -r requirements-deploy.txt
 
 COPY app.py .
 COPY asl_lab/ asl_lab/
+COPY scripts/acquire_wlasl.py scripts/extract_words.py scripts/
 COPY config/showcase50.json config/
 COPY templates/ templates/
 COPY static/ static/

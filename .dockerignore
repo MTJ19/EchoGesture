@@ -3,6 +3,9 @@
 !app.py
 !asl_lab/
 !asl_lab/*.py
+!scripts/
+!scripts/acquire_wlasl.py
+!scripts/extract_words.py
 !config/
 !config/showcase50.json
 !templates/
